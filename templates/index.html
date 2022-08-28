@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flask Web Page</title>
+    
+    <style>
+		body {
+			background-color:#DBF9DB;
+			padding:30px 0px;
+		}
+		
+		.main{
+            height: 620px;
+            width: 50%;
+            background-color:white ;
+			margin:auto;
+			border-radius:10px;
+			
+        }
+		
+		h1{
+			color:#045F5F;
+			text-align:center;
+			margin-top:20px;
+			font-size:40px;
+		}
+		
+		input[type=text] {
+			background:#DBF9DB;
+			font-size:15px;
+			font-color:black;
+			width:87%;
+			height:25px;
+            padding: 2%;
+			margin-left:5.5%;
+			border-radius:5px;
+			border:none;
+		}
+		
+		table {
+			width:100%;
+			padding:0 5%;
+		}
+		
+		td{
+			width:45%;
+			height:25px;
+			padding : 1% 1%;
+			margin-right:px;
+		}
+		
+		.font{
+			padding:2% 2%;
+			margin-left:5.5%;
+			font-size:15px;
+			margin-bottom:10px;
+		}
+		
+		select {
+			background:#DBF9DB;
+			width:90%;
+			height:40px;
+            padding:2% 2%;
+			margin-left:5.5%;
+			border:none;
+			border-radius:5px;
+		}
+     
+        
+        button{
+            height:50px;
+            width: 95%;
+			margin-left:2.5%;
+			border-radius:10px;
+			background:#00203FFF;
+			color:white;
+			font-size:20px;
+			margin-top:10px;
+        }
+		
+		.text{
+			text-align:center;
+			font-size:25px;
+			margin-top:10px;
+		}
+    </style>
+
+</head>
+<body>
+	<div class="main">
+		
+		<div class="form">
+			<form action="predict" method="POST">
+				<table>
+					<tr>
+						<td colspan="2"> 
+							<h1> Predict House Price </h1>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" name="area" placeholder="Enter Area" class="font" required></input> </td>
+						
+						<td>
+							<select name="bedrooms" class="font" required>
+								<option>Bedrooms</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select> 
+						</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<select name="bathrooms" class="font" required>
+								<option>Bathrooms</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</td>
+						
+						<td>
+							<select name="stories" class="font" required>
+								<option>Stories</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select> 
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<select name="mainroad" class="font" required>
+								<option>Near Mainroad </option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+						
+						<td>
+							<select name="guestroom" class="font" required>
+								<option>Guestroom ?</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<select name="basement" class="font" required>
+								<option>Basement ? </option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+						
+						<td>
+							<select name="hotwaterheating"  class="font" required>
+								<option>Water heating service ?</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<select name="airconditioning" class="font" required>
+								<option>Air conditioning service ?</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+						
+						<td> 
+							<select name="parking" class="font" required>
+								<option>Parkings</option>
+								<option value="1">0</option>
+								<option value="2">1</option>
+								<option value="3">2</option>
+								<option value="4">3</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<select name="prefarea" class="font" required>
+								<option>Pref Area</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</td>
+						
+						<td> 
+							<select name="furnishingstatus" class="font" required>
+								<option>Furnishing</option>
+								<option value="0">furnished</option>
+								<option value="1">semi-furnished</option>
+								<option value="2">unfurnished</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2">
+							<button type="submit">Pridict Price</button>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" class="text"> 
+							<font><b>{{ prediction_text }}</b></font>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+    </div>
+	
+</body>
+</html>
