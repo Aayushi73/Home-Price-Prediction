@@ -23,7 +23,7 @@ def predict():
             predict_list = list(predict_list.values())
             predict_list = list(map(int, predict_list))
             result = pred(predict_list)
-            return render_template('index.html' , prediction_text = int(result))
+            return render_template('index.html' , prediction_text = f'The price of House is: {int(result)}/-')
 
     except:
         return render_template('index.html' , prediction_text = "Please enter valid data")
